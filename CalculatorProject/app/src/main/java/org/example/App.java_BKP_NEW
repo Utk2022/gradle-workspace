@@ -2,15 +2,10 @@ package org.example;
 import java.util.Scanner;
 
 public class App {
-    public String getGreeting() {
-        return "Simple Calculator Demo in Java with Gradle";
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
-
+    public String calculatorDemo() {
         Scanner scanner = new Scanner(System.in);
 
+        //System.out.print("Enter the first number: ");
         double num1 = 0;
         double num2 = 0;
 
@@ -25,7 +20,7 @@ public class App {
 
             System.out.println("Invalid input for first number.");
 
-            return;  // Exit the program if input is invalid
+        //    return;  // Exit the program if input is invalid
 
         }
 
@@ -39,19 +34,17 @@ public class App {
 
             System.out.println("Invalid input for second number.");
 
-            return; 
+          //  return;  // Exit the program if input is invalid
 
         }
         // Ask the user for the operation they want to perform
         System.out.println("Choose an operation: ");
-        System.out.println("1. Addition");
-        System.out.println("2. Subtraction");
-        System.out.println("3. Multiplication");
-        System.out.println("4. Division");
+        System.out.println("1. Addition (+)");
+        System.out.println("2. Subtraction (-)");
+        System.out.println("3. Multiplication (*)");
+        System.out.println("4. Division (/)");
         System.out.print("Enter the operation (1/2/3/4): ");
-
         int choice;
-
         if (scanner.hasNextInt()) {
 
             choice = scanner.nextInt();
@@ -60,7 +53,7 @@ public class App {
 
             System.out.println("Invalid operation choice.");
 
-            return;  // Exit the program if input is invalid
+          //  return;  // Exit the program if input is invalid
 
         }
 
@@ -81,7 +74,7 @@ public class App {
                 System.out.println("The result of multiplication is: " + result);
                 break;
             case 4:
-                // Handle division by zero exception
+                // Handle division by zero
                 if (num2 != 0) {
                     result = num1 / num2;
                     System.out.println("The result of division is: " + result);
@@ -90,10 +83,17 @@ public class App {
                 }
                 break;
             default:
-                System.out.println("Invalid operation! Please only choose from 1, 2, 3, or 4 options. ");
+                System.out.println("Invalid operation! Please choose 1, 2, 3, or 4.");
         }
 
+        // Close the scanner
         scanner.close();
+        
     }
+
+    public static void main(String[] args) {
+        System.out.println(new App().calculatorDemo());
+
+}
 }
 
